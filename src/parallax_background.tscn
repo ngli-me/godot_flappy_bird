@@ -1,17 +1,17 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwk0jwk5piw14"]
 
-[ext_resource type="Script" path="res://parallax_background.gd" id="1_rkf3j"]
-[ext_resource type="Texture2D" uid="uid://b6fdbor3vwytr" path="res://sprites/sky-day.png" id="2_mwsve"]
-[ext_resource type="Texture2D" uid="uid://b738x4h76fsga" path="res://sprites/buildings-day.png" id="3_ju5qa"]
-[ext_resource type="Texture2D" uid="uid://c6m3qfewd2lwf" path="res://sprites/sky-night.png" id="3_njlyo"]
-[ext_resource type="Texture2D" uid="uid://bv1vcrtynexjp" path="res://sprites/grass-day.png" id="4_1d3q8"]
-[ext_resource type="Texture2D" uid="uid://bd52f0v65cruo" path="res://sprites/base.png" id="5_0wrnd"]
-[ext_resource type="Texture2D" uid="uid://cg8jj5660wit1" path="res://sprites/buildings-night.png" id="5_p3kra"]
-[ext_resource type="Texture2D" uid="uid://baw637isxyilu" path="res://sprites/grass-night.png" id="7_dxfk1"]
+[ext_resource type="Script" path="res://src/parallax_background.gd" id="1_2bof3"]
+[ext_resource type="Texture2D" uid="uid://b6fdbor3vwytr" path="res://sprites/sky-day.png" id="2_jh8rn"]
+[ext_resource type="Texture2D" uid="uid://c6m3qfewd2lwf" path="res://sprites/sky-night.png" id="3_5tkqd"]
+[ext_resource type="Texture2D" uid="uid://b738x4h76fsga" path="res://sprites/buildings-day.png" id="4_7c6ma"]
+[ext_resource type="Texture2D" uid="uid://cg8jj5660wit1" path="res://sprites/buildings-night.png" id="5_tufdl"]
+[ext_resource type="Texture2D" uid="uid://bv1vcrtynexjp" path="res://sprites/grass-day.png" id="6_wj7q3"]
+[ext_resource type="Texture2D" uid="uid://baw637isxyilu" path="res://sprites/grass-night.png" id="7_ptf7g"]
+[ext_resource type="Texture2D" uid="uid://bd52f0v65cruo" path="res://sprites/base.png" id="8_2ixsj"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 scroll_ignore_camera_zoom = true
-script = ExtResource("1_rkf3j")
+script = ExtResource("1_2bof3")
 
 [node name="SkyLayer" type="ParallaxLayer" parent="."]
 texture_repeat = 2
@@ -19,7 +19,7 @@ motion_mirroring = Vector2(512, 0)
 
 [node name="DaySkySprite" type="Sprite2D" parent="SkyLayer"]
 texture_repeat = 2
-texture = ExtResource("2_mwsve")
+texture = ExtResource("2_jh8rn")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 720)
@@ -27,7 +27,7 @@ region_rect = Rect2(0, 0, 512, 720)
 [node name="NightSkySprite" type="Sprite2D" parent="SkyLayer"]
 visible = false
 texture_repeat = 2
-texture = ExtResource("3_njlyo")
+texture = ExtResource("3_5tkqd")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 720)
@@ -39,7 +39,7 @@ motion_mirroring = Vector2(512, 0)
 [node name="DayBuildingsSprite" type="Sprite2D" parent="BuildingsLayer"]
 texture_repeat = 2
 position = Vector2(0, 552)
-texture = ExtResource("3_ju5qa")
+texture = ExtResource("4_7c6ma")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 38)
@@ -48,7 +48,7 @@ region_rect = Rect2(0, 0, 512, 38)
 visible = false
 texture_repeat = 2
 position = Vector2(0, 552)
-texture = ExtResource("5_p3kra")
+texture = ExtResource("5_tufdl")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 38)
@@ -60,7 +60,7 @@ motion_mirroring = Vector2(512, 0)
 [node name="DayGrassSprite" type="Sprite2D" parent="GrassLayer"]
 texture_repeat = 2
 position = Vector2(0, 576)
-texture = ExtResource("4_1d3q8")
+texture = ExtResource("6_wj7q3")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 144)
@@ -69,7 +69,7 @@ region_rect = Rect2(0, 0, 512, 144)
 visible = false
 texture_repeat = 2
 position = Vector2(0, 576)
-texture = ExtResource("7_dxfk1")
+texture = ExtResource("7_ptf7g")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 144)
@@ -81,7 +81,7 @@ motion_mirroring = Vector2(506, 0)
 [node name="BaseSprite" type="Sprite2D" parent="BaseLayer"]
 texture_repeat = 2
 position = Vector2(0, 632)
-texture = ExtResource("5_0wrnd")
+texture = ExtResource("8_2ixsj")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 112)

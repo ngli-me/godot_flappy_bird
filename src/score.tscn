@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://csad7ueva2xwf"]
+
+[ext_resource type="Script" path="res://src/score.gd" id="1_al7do"]
+[ext_resource type="Texture2D" uid="uid://fkrlwbm0lcak" path="res://sprites/0.png" id="2_65gwi"]
+[ext_resource type="Texture2D" uid="uid://c5y2nb56jaimh" path="res://sprites/1.png" id="3_r1bwx"]
+[ext_resource type="Texture2D" uid="uid://biovtyaufdjeq" path="res://sprites/2.png" id="4_6te1b"]
+[ext_resource type="Texture2D" uid="uid://csvchphtiwnds" path="res://sprites/3.png" id="5_vfgyb"]
+[ext_resource type="Texture2D" uid="uid://cctvaumu4c20g" path="res://sprites/4.png" id="6_gs6j0"]
+[ext_resource type="Texture2D" uid="uid://bdmxifwypbl0m" path="res://sprites/5.png" id="7_x7ce6"]
+[ext_resource type="Texture2D" uid="uid://darb1b64yavg6" path="res://sprites/6.png" id="8_8hrxg"]
+[ext_resource type="Texture2D" uid="uid://c6dbbk33wb77v" path="res://sprites/7.png" id="9_pgwsq"]
+[ext_resource type="Texture2D" uid="uid://dwqtptk4fdyoa" path="res://sprites/8.png" id="10_0yxq1"]
+[ext_resource type="Texture2D" uid="uid://misg7sb5uhsq" path="res://sprites/9.png" id="11_w2lok"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_al7do")
+
+[node name="V0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("2_65gwi")
+
+[node name="V1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("3_r1bwx")
+
+[node name="V2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("4_6te1b")
+
+[node name="V3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("5_vfgyb")
+
+[node name="V4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("6_gs6j0")
+
+[node name="V5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("7_x7ce6")
+
+[node name="V6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("8_8hrxg")
+
+[node name="V7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("9_pgwsq")
+
+[node name="V8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("10_0yxq1")
+
+[node name="V9" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 18)
+texture = ExtResource("11_w2lok")

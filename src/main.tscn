@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://niwor7dy4u7"]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1_7hbvq"]
+[ext_resource type="PackedScene" uid="uid://wkt7atjupgnt" path="res://src/pipe.tscn" id="2_oi2t4"]
+[ext_resource type="PackedScene" uid="uid://bv5jikv6yys6l" path="res://src/player.tscn" id="3_x1gp2"]
+[ext_resource type="PackedScene" uid="uid://bwk0jwk5piw14" path="res://src/parallax_background.tscn" id="4_8gd34"]
+[ext_resource type="PackedScene" uid="uid://csrv86ouwfqq8" path="res://src/hud.tscn" id="5_oqhab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5een"]
+size = Vector2(482, 40)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_7hbvq")
+pipe_scene = ExtResource("2_oi2t4")
+
+[node name="Player" parent="." instance=ExtResource("3_x1gp2")]
+position = Vector2(128, 256)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_8gd34")]
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 1.25
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="HUD" parent="." instance=ExtResource("5_oqhab")]
+layer = 0
+
+[node name="PipeSpawn" type="Node2D" parent="."]
+
+[node name="PipeTop" type="Node2D" parent="PipeSpawn"]
+position = Vector2(480, 0)
+
+[node name="PipeBottom" type="Node2D" parent="PipeSpawn"]
+position = Vector2(480, 720)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(128, 256)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+custom_integrator = true
+
+[node name="BottomCollisionShape" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(240, 736)
+shape = SubResource("RectangleShape2D_f5een")
+debug_color = Color(0.964706, 0, 0.478431, 0.419608)
+
+[node name="TopCollisionShape" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(239, -16)
+shape = SubResource("RectangleShape2D_f5een")
+debug_color = Color(0.964706, 0, 0.478431, 0.419608)
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="bird_color_change" from="HUD" to="." method="_on_hud_bird_color_change"]
+[connection signal="pipe_color_change" from="HUD" to="." method="_on_hud_pipe_color_change"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
+[connection signal="time_change" from="HUD" to="." method="_on_hud_time_change"]

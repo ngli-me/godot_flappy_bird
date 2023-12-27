@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://wkt7atjupgnt"]
 
-[ext_resource type="Script" path="res://pipe.gd" id="1_dreu8"]
-[ext_resource type="Texture2D" uid="uid://djpa1ogvvap6e" path="res://sprites/pipe-green.png" id="1_fyttk"]
-[ext_resource type="Texture2D" uid="uid://clm3lnsirsb7t" path="res://sprites/pipe-red.png" id="3_6o7n4"]
+[ext_resource type="Script" path="res://src/pipe.gd" id="1_hh1th"]
+[ext_resource type="Texture2D" uid="uid://djpa1ogvvap6e" path="res://sprites/pipe-green.png" id="2_n0y0t"]
+[ext_resource type="Texture2D" uid="uid://clm3lnsirsb7t" path="res://sprites/pipe-red.png" id="3_pxo2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_er8jp"]
 size = Vector2(52, 500)
@@ -11,7 +11,7 @@ size = Vector2(52, 500)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fyttk")
+"texture": ExtResource("2_n0y0t")
 }],
 "loop": true,
 "name": &"green",
@@ -19,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_6o7n4")
+"texture": ExtResource("3_pxo2e")
 }],
 "loop": true,
 "name": &"red",
@@ -29,7 +29,7 @@ animations = [{
 [node name="pipe" type="RigidBody2D"]
 gravity_scale = 0.0
 custom_integrator = true
-script = ExtResource("1_dreu8")
+script = ExtResource("1_hh1th")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_er8jp")
@@ -37,7 +37,7 @@ shape = SubResource("RectangleShape2D_er8jp")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_fyttk")
+texture = ExtResource("2_n0y0t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_adqvd")
