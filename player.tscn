@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://bv5jikv6yys6l"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_rmflw"]
+[ext_resource type="Texture2D" uid="uid://bwdp7wgxjrpr4" path="res://sprites/bluebird-downflap.png" id="2_1xkbk"]
+[ext_resource type="Texture2D" uid="uid://d3c3cdh4byts3" path="res://sprites/bluebird-midflap.png" id="3_15cb1"]
+[ext_resource type="Texture2D" uid="uid://b3723ejrr861y" path="res://sprites/bluebird-upflap.png" id="4_324sm"]
+[ext_resource type="Texture2D" uid="uid://chm88dgudg6ml" path="res://sprites/redbird-downflap.png" id="5_7rjy5"]
+[ext_resource type="Texture2D" uid="uid://py808s8d563u" path="res://sprites/redbird-midflap.png" id="6_0wpvy"]
+[ext_resource type="Texture2D" uid="uid://bu3iei167ahrv" path="res://sprites/redbird-upflap.png" id="7_ifjo7"]
+[ext_resource type="Texture2D" uid="uid://busoriajhh43m" path="res://sprites/yellowbird-downflap.png" id="8_xfsjp"]
+[ext_resource type="Texture2D" uid="uid://ddb6f52glgfkw" path="res://sprites/yellowbird-midflap.png" id="9_h0vhc"]
+[ext_resource type="Texture2D" uid="uid://sacyei558d0t" path="res://sprites/yellowbird-upflap.png" id="10_iv3sj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_upsk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1xkbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_15cb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_324sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_15cb1")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7rjy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0wpvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ifjo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0wpvy")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xfsjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h0vhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iv3sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h0vhc")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jmhp6"]
+radius = 12.0
+height = 34.0
+
+[node name="Player" type="Area2D"]
+gravity_point_unit_distance = 8.324
+script = ExtResource("1_rmflw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_upsk2")
+animation = &"blue"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jmhp6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://wkt7atjupgnt"]
+
+[ext_resource type="Script" path="res://pipe.gd" id="1_dreu8"]
+[ext_resource type="Texture2D" uid="uid://djpa1ogvvap6e" path="res://sprites/pipe-green.png" id="1_fyttk"]
+[ext_resource type="Texture2D" uid="uid://clm3lnsirsb7t" path="res://sprites/pipe-red.png" id="3_6o7n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er8jp"]
+size = Vector2(52, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_adqvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fyttk")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6o7n4")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[node name="pipe" type="RigidBody2D"]
+gravity_scale = 0.0
+custom_integrator = true
+script = ExtResource("1_dreu8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_er8jp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fyttk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_adqvd")
+animation = &"red"

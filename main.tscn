@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://niwor7dy4u7"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_60ov6"]
+[ext_resource type="PackedScene" uid="uid://bv5jikv6yys6l" path="res://player.tscn" id="1_sm60w"]
+[ext_resource type="PackedScene" uid="uid://bwk0jwk5piw14" path="res://parallax_background.tscn" id="2_icxmj"]
+[ext_resource type="PackedScene" uid="uid://wkt7atjupgnt" path="res://pipe.tscn" id="2_su5jq"]
+[ext_resource type="PackedScene" uid="uid://csrv86ouwfqq8" path="res://hud.tscn" id="4_2mman"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_60ov6")
+pipe_scene = ExtResource("2_su5jq")
+
+[node name="Player" parent="." instance=ExtResource("1_sm60w")]
+position = Vector2(128, 256)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_icxmj")]
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 1.25
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="HUD" parent="." instance=ExtResource("4_2mman")]
+layer = 0
+
+[node name="PipeSpawn" type="Node2D" parent="."]
+
+[node name="PipeTop" type="Node2D" parent="PipeSpawn"]
+position = Vector2(480, 0)
+
+[node name="PipeBottom" type="Node2D" parent="PipeSpawn"]
+position = Vector2(480, 720)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(128, 256)
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="bird_color_change" from="HUD" to="." method="_on_hud_bird_color_change"]
+[connection signal="pipe_color_change" from="HUD" to="." method="_on_hud_pipe_color_change"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
+[connection signal="time_change" from="HUD" to="." method="_on_hud_time_change"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwk0jwk5piw14"]
+
+[ext_resource type="Script" path="res://parallax_background.gd" id="1_rkf3j"]
+[ext_resource type="Texture2D" uid="uid://b6fdbor3vwytr" path="res://sprites/sky-day.png" id="2_mwsve"]
+[ext_resource type="Texture2D" uid="uid://b738x4h76fsga" path="res://sprites/buildings-day.png" id="3_ju5qa"]
+[ext_resource type="Texture2D" uid="uid://c6m3qfewd2lwf" path="res://sprites/sky-night.png" id="3_njlyo"]
+[ext_resource type="Texture2D" uid="uid://bv1vcrtynexjp" path="res://sprites/grass-day.png" id="4_1d3q8"]
+[ext_resource type="Texture2D" uid="uid://bd52f0v65cruo" path="res://sprites/base.png" id="5_0wrnd"]
+[ext_resource type="Texture2D" uid="uid://cg8jj5660wit1" path="res://sprites/buildings-night.png" id="5_p3kra"]
+[ext_resource type="Texture2D" uid="uid://baw637isxyilu" path="res://sprites/grass-night.png" id="7_dxfk1"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+script = ExtResource("1_rkf3j")
+
+[node name="SkyLayer" type="ParallaxLayer" parent="."]
+texture_repeat = 2
+motion_mirroring = Vector2(512, 0)
+
+[node name="DaySkySprite" type="Sprite2D" parent="SkyLayer"]
+texture_repeat = 2
+texture = ExtResource("2_mwsve")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 720)
+
+[node name="NightSkySprite" type="Sprite2D" parent="SkyLayer"]
+visible = false
+texture_repeat = 2
+texture = ExtResource("3_njlyo")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 720)
+
+[node name="BuildingsLayer" type="ParallaxLayer" parent="."]
+texture_repeat = 2
+motion_mirroring = Vector2(512, 0)
+
+[node name="DayBuildingsSprite" type="Sprite2D" parent="BuildingsLayer"]
+texture_repeat = 2
+position = Vector2(0, 552)
+texture = ExtResource("3_ju5qa")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 38)
+
+[node name="NightBuildingsSprite" type="Sprite2D" parent="BuildingsLayer"]
+visible = false
+texture_repeat = 2
+position = Vector2(0, 552)
+texture = ExtResource("5_p3kra")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 38)
+
+[node name="GrassLayer" type="ParallaxLayer" parent="."]
+texture_repeat = 2
+motion_mirroring = Vector2(512, 0)
+
+[node name="DayGrassSprite" type="Sprite2D" parent="GrassLayer"]
+texture_repeat = 2
+position = Vector2(0, 576)
+texture = ExtResource("4_1d3q8")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 144)
+
+[node name="NightGrassSprite" type="Sprite2D" parent="GrassLayer"]
+visible = false
+texture_repeat = 2
+position = Vector2(0, 576)
+texture = ExtResource("7_dxfk1")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 144)
+
+[node name="BaseLayer" type="ParallaxLayer" parent="."]
+texture_repeat = 2
+motion_mirroring = Vector2(506, 0)
+
+[node name="BaseSprite" type="Sprite2D" parent="BaseLayer"]
+texture_repeat = 2
+position = Vector2(0, 632)
+texture = ExtResource("5_0wrnd")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 112)

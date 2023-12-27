@@ -1,0 +1,154 @@
+[gd_scene load_steps=21 format=3 uid="uid://csrv86ouwfqq8"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_nlul8"]
+[ext_resource type="PackedScene" uid="uid://cdhpidfa01jcq" path="res://score.tscn" id="2_bmby4"]
+[ext_resource type="Texture2D" uid="uid://bwdp7wgxjrpr4" path="res://sprites/bluebird-downflap.png" id="2_i6nwu"]
+[ext_resource type="Texture2D" uid="uid://d3c3cdh4byts3" path="res://sprites/bluebird-midflap.png" id="3_ayobp"]
+[ext_resource type="Texture2D" uid="uid://b3723ejrr861y" path="res://sprites/bluebird-upflap.png" id="4_quckr"]
+[ext_resource type="Texture2D" uid="uid://chm88dgudg6ml" path="res://sprites/redbird-downflap.png" id="5_1kwmr"]
+[ext_resource type="Texture2D" uid="uid://py808s8d563u" path="res://sprites/redbird-midflap.png" id="6_60ddg"]
+[ext_resource type="Texture2D" uid="uid://bu3iei167ahrv" path="res://sprites/redbird-upflap.png" id="7_jwy3l"]
+[ext_resource type="Texture2D" uid="uid://busoriajhh43m" path="res://sprites/yellowbird-downflap.png" id="8_43hyg"]
+[ext_resource type="Texture2D" uid="uid://ddb6f52glgfkw" path="res://sprites/yellowbird-midflap.png" id="9_xvvgi"]
+[ext_resource type="Texture2D" uid="uid://sacyei558d0t" path="res://sprites/yellowbird-upflap.png" id="10_esb3i"]
+[ext_resource type="Texture2D" uid="uid://djpa1ogvvap6e" path="res://sprites/pipe-green.png" id="11_ku2iw"]
+[ext_resource type="Texture2D" uid="uid://clm3lnsirsb7t" path="res://sprites/pipe-red.png" id="12_dbuko"]
+[ext_resource type="Texture2D" uid="uid://bb2omkfkqeh5j" path="res://sprites/gameover.png" id="13_mmma5"]
+[ext_resource type="Texture2D" uid="uid://b0ymdd5wqtmw2" path="res://sprites/flappybird.png" id="14_4bwhp"]
+[ext_resource type="Texture2D" uid="uid://4qbgms7xh77o" path="res://sprites/instructions.png" id="15_jrpd6"]
+[ext_resource type="Texture2D" uid="uid://rd6ru3am0yvt" path="res://sprites/getready.png" id="16_ailk2"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fddwc"]
+frames = 3
+frame_0/texture = ExtResource("2_i6nwu")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("3_ayobp")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("4_quckr")
+frame_2/duration = 0.1
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_2yjl4"]
+frames = 3
+frame_0/texture = ExtResource("5_1kwmr")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("6_60ddg")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("7_jwy3l")
+frame_2/duration = 0.1
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_gy8yy"]
+frames = 3
+frame_0/texture = ExtResource("8_43hyg")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("9_xvvgi")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("10_esb3i")
+frame_2/duration = 0.1
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_nlul8")
+score_scene = ExtResource("2_bmby4")
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 90.0
+text = "0"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="."]
+visible = false
+offset_top = 128.0
+offset_right = 480.0
+offset_bottom = 154.0
+text = "Flappy Bird"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+modulate = Color(1, 1, 0, 0)
+offset_right = 480.0
+offset_bottom = 720.0
+scale = Vector2(0.998905, 0.786652)
+
+[node name="MessageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BlueBird" type="TextureButton" parent="."]
+offset_left = 144.133
+offset_top = 320.0
+offset_right = 178.133
+offset_bottom = 344.0
+rotation = 0.00555315
+texture_normal = SubResource("AnimatedTexture_fddwc")
+
+[node name="RedBird" type="TextureButton" parent="."]
+offset_left = 224.0
+offset_top = 320.0
+offset_right = 258.0
+offset_bottom = 344.0
+texture_normal = SubResource("AnimatedTexture_2yjl4")
+
+[node name="YellowBird" type="TextureButton" parent="."]
+offset_left = 312.133
+offset_top = 320.0
+offset_right = 346.133
+offset_bottom = 344.0
+texture_normal = SubResource("AnimatedTexture_gy8yy")
+
+[node name="GreenPipe" type="TextureButton" parent="."]
+offset_left = 136.0
+offset_top = 536.0
+offset_right = 188.0
+offset_bottom = 1036.0
+texture_normal = ExtResource("11_ku2iw")
+
+[node name="RedPipe" type="TextureButton" parent="."]
+offset_left = 296.0
+offset_top = 536.0
+offset_right = 348.0
+offset_bottom = 1036.0
+texture_normal = ExtResource("12_dbuko")
+
+[node name="Gameover" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(248, 232)
+texture = ExtResource("13_mmma5")
+
+[node name="FlappyBird" type="Sprite2D" parent="."]
+position = Vector2(240, 152)
+texture = ExtResource("14_4bwhp")
+
+[node name="Instructions" type="Sprite2D" parent="."]
+position = Vector2(240, 424)
+texture = ExtResource("15_jrpd6")
+
+[node name="GetReady" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(250, 313)
+texture = ExtResource("16_ailk2")
+
+[node name="GetReadyTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Score" type="Node2D" parent="."]
+visible = false
+position = Vector2(240, 72)
+
+[node name="DayNightToggle" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = 568.0
+offset_right = 480.0
+offset_bottom = 1288.0
+scale = Vector2(1.00101, 0.304931)
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="BlueBird" to="." method="_on_blue_bird_pressed"]
+[connection signal="pressed" from="RedBird" to="." method="_on_red_bird_pressed"]
+[connection signal="pressed" from="YellowBird" to="." method="_on_yellow_bird_pressed"]
+[connection signal="pressed" from="GreenPipe" to="." method="_on_green_pipe_pressed"]
+[connection signal="pressed" from="RedPipe" to="." method="_on_red_pipe_pressed"]
+[connection signal="timeout" from="GetReadyTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="timeout" from="GetReadyTimer" to="." method="_on_get_ready_timer_timeout"]
+[connection signal="pressed" from="DayNightToggle" to="." method="_on_day_night_toggle_pressed"]
