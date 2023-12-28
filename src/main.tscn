@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csrv86ouwfqq8" path="res://src/hud.tscn" id="5_oqhab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5een"]
-size = Vector2(482, 40)
+size = Vector2(480, 40)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7hbvq")
@@ -49,7 +49,7 @@ one_way_collision = true
 debug_color = Color(0.964706, 0, 0.478431, 0.419608)
 
 [node name="TopCollisionShape" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(239, -16)
+position = Vector2(240, -16)
 shape = SubResource("RectangleShape2D_f5een")
 one_way_collision = true
 debug_color = Color(0.964706, 0, 0.478431, 0.419608)

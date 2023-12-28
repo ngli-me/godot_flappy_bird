@@ -12,8 +12,6 @@ var score = 0
 var toggle = false
 
 func show_game_over_message():
-	# $MessageLabel.text = text
-	# $MessageLabel.show()
 	$Gameover.show()
 	$MessageTimer.start()
 	

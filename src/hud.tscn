@@ -57,14 +57,6 @@ offset_bottom = 90.0
 text = "0"
 horizontal_alignment = 1
 
-[node name="MessageLabel" type="Label" parent="."]
-visible = false
-offset_top = 128.0
-offset_right = 480.0
-offset_bottom = 154.0
-text = "Flappy Bird"
-horizontal_alignment = 1
-
 [node name="StartButton" type="Button" parent="."]
 modulate = Color(1, 1, 0, 0)
 offset_right = 480.0

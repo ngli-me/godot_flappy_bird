@@ -10,8 +10,8 @@ Aside from that, running the project will give this error:
 > The following features required to run Godot projects on the Web are missing: \
 > Cross Origin Isolation - Check web server configuration (send correct headers) \
 > SharedArrayBuffer - Check web server configuration (send correct headers)
-	
-To fix this, [Fernando Gimenez](https://github.com/pijamarda) provided a [fix](https://github.com/godotengine/godot/issues/69020). Run server.py with `python server.py`.
+
+To fix this, [Fernando Gimenez](https://github.com/pijamarda) provided a [python script](https://github.com/godotengine/godot/issues/69020). Run server.py with `python server.py`.
 
 Then, through `http://localhost:8000/build/flappybird.html` (assuming there is a build folder and an exported html file), you can access the game. 
 
@@ -20,9 +20,6 @@ Alternatively, you can go to `localhost:8000` and navigate to the built html fil
 #### Project Controls:
 - Move with 'Space' or 'Left-Click'
 - Select options with 'Left-Click'
-
-#### TODO:
-The resizing doesn't work whoops!
 
 #### Credits:
 - Textures from [Samuel Custodio](https://github.com/samuelcust/flappy-bird-assets)

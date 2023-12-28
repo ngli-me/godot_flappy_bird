@@ -41,6 +41,9 @@ func _on_hud_pipe_color_change(index):
 func _on_hud_time_change():
 	$ParallaxBackground.toggle_time()
 
+func _ready():
+	pass 
+	
 func initialize_pipe_offset():
 	pipe_offsets.append([-100, -100]) # Top
 	pipe_offsets.append([0, 0]) # Middle

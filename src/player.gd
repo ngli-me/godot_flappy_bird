@@ -5,7 +5,7 @@ var screen_size # Size of the game window
 @export var falling_speed = 1000
 @export var max_speed = 2000
 var velocity
-var alive_state = true
+var alive_state = false
 var jumping = false
 
 enum color {BLUE, RED, YELLOW}
@@ -44,7 +44,7 @@ func _input(event):
 			jumping = true
 
 func _on_body_entered(body):
-	print("hit")
+	alive_state = false
 	hide() # Player disappears after being hit.
 	hit.emit()
 	# Defer since can't change physics properties on a physics callback
@@ -55,6 +55,8 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+	await get_tree().create_timer(0.5).timeout
+	alive_state = true
 
 func change_color(index):
 	match (index):
